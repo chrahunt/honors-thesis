@@ -1,0 +1,187 @@
+% This template written by Dr. Helmstutler.
+% If your questions about this document cannot be answered by a lot of research, see Dr. H in Trinkle 128.
+% Suggested reference:  "Math Into LaTeX" by George Gratzer.
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, latexsym}
+\usepackage{tensor} % For properly aligned mixed upper/lower indices
+\usepackage[mathscr]{euscript} % For script font
+
+% The following is just a suggestion.  Theoremstyle declarations left to discretion of student/advisor.
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+% For page width.  Do not disturb.
+\oddsidemargin=0.0in \evensidemargin=0.0in \textwidth=6.5in
+
+% For paper height.  Do not disturb.
+\topmargin=-0.5in \textheight=9.0in
+
+% For no paragraph indents.  Style choice left to student/advisor.
+% \setlength{\parindent}{0pt}
+
+% Various commands.
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\sU}{\scr{U}}
+\newcommand{\sV}{\scr{U}}
+
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bn}{\mathbf{n}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bg}{\mathbf{\gamma}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ptl}{\partial}
+\newcommand{\Ck}{C^k}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\inv}{^{-1}}
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\bgam}{\boldsymbol{\gamma}}
+\newcommand{\Cfl}{\tensor{\Gamma}{_{ij}^k}}
+\newcommand{\del}{\partial}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%
+%% Title Page %%
+%%%%%%%%%%%%%%%%
+
+% Do not disturb the spacing parameters.
+
+\protect{\thispagestyle{empty}}
+
+\begin{center}
+
+\LARGE
+
+\phantom{1}
+
+\vspace{1.5in}
+
+\sc Surface Theory, Miminal Surfaces, and Weierstrass Theorem \normalfont
+
+\Large
+
+\vspace{1.0in}
+
+Christopher A.\ Hunt
+
+\vfill
+
+submitted in partial fulfillment of the requirements for Honors in Mathematics at the
+University of Mary Washington
+
+\vspace{0.5in}
+
+Fredericksburg, Virginia
+
+\vspace{0.5in}
+
+April 2014
+
+\normalsize
+
+\vspace{1.0in}
+
+\end{center}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%
+%% Signature Page %%
+%%%%%%%%%%%%%%%%%%%%
+
+% Do not disturb the spacing parameters.
+
+\protect{\thispagestyle{empty}}
+
+\phantom{1}
+
+\vspace{0.5in}
+
+\noindent  This thesis by \textbf{John Q.\ Student} is accepted in its present form as satisfying the thesis requirement
+for Honors in Mathematics.
+
+\vspace{1.0in}
+
+% Thesis advisor FIRST, then readers alphabetically.
+
+\begin{tabular}{p{1.0in}l}
+\sc Date & \sc Approved \\[.65in]
+\rule{0.85in}{0.5pt} & \rule{2.6in}{0.5pt}\\
+& Johnny J.\ Johnson, Ph.D.\\    % Advisor
+& thesis advisor\\[.65in]
+\rule{0.85in}{0.5pt} & \rule{2.6in}{0.5pt}\\
+& Lauren L.\ Laurenson, Ph.D.\\  % Reader #1
+& committee member\\[.65in]
+\rule{0.85in}{0.5pt} & \rule{2.6in}{0.5pt}\\
+& Thomas T.\ Thompson, Ph.D.\\   % Reader #2
+& committee member
+\end{tabular}
+
+\pagebreak
+
+%%%%%%%%%%%%%%
+%% Contents %%
+%%%%%%%%%%%%%%
+
+% This creates the table of contents, but does not paginate it.  Do not disturb.
+
+\phantom{1}
+
+\vspace{0.5in}
+
+\tableofcontents{\protect\thispagestyle{empty}}
+
+\pagebreak
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%
+%% Abstract %%
+%%%%%%%%%%%%%%
+
+\begin{abstract}
+\noindent  Here's what we're going to do.
+\end{abstract}
+
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Exposition Below %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+{\input{section1}}
+
+%%%%%%%%%%%%%%
+%% Bib Data %%
+%%%%%%%%%%%%%%
+
+\pagebreak  % This pagebreak is to occur RIGHT BEFORE the bib call-up.  Do not disturb.
+
+\addcontentsline{toc}{section}{References}
+
+% De-comment the next two lines when ready to compile the bibliography.  Use amsplain style.
+
+%\bibliographystyle{amsplain}
+%\bibliography{my bib database filename without the .bib extension}
+
+% De-comment the next line to call up the entire database, whether cited or not.
+%\nocite*
+
+\end{document}
