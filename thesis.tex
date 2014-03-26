@@ -9,17 +9,23 @@
 
 % The following is just a suggestion.  Theoremstyle declarations left to discretion of student/advisor.
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem{thm}{Theorem}
 \newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem*{unno_claim}{Claim}
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{ex}[thm]{Example}
+\newtheorem*{quest}{Question}
+\newtheorem*{unno_ass}{Assumption}
+\newtheorem*{unno_notat}{Notation}
 
-\newtheorem*{rem}{Remark}
-\newtheorem*{note}{Note}
+\theoremstyle{remark}
+\newtheorem*{unno_rem}{Remark}
+\newtheorem*{unno_note}{Note}
 
 % For page width.  Do not disturb.
 \oddsidemargin=0.0in \evensidemargin=0.0in \textwidth=6.5in
@@ -38,11 +44,13 @@
 \newcommand{\bX}{\mathbf{X}}
 \newcommand{\bx}{\mathbf{x}}
 \newcommand{\bY}{\mathbf{Y}}
+\newcommand{\by}{\mathbf{y}}
 \newcommand{\bT}{\mathbf{T}}
 \newcommand{\bS}{\mathbf{S}}
 \newcommand{\bn}{\mathbf{n}}
 \newcommand{\bN}{\mathbf{N}}
 \newcommand{\bg}{\mathbf{\gamma}}
+\newcommand{\ba}{\mathbf{\alpha}}
 
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ptl}{\partial}
@@ -167,6 +175,7 @@ for Honors in Mathematics.
 %%%%%%%%%%%%%%%%%%%%%%
 
 {\input{section1}}
+{\input{section2}}
 
 %%%%%%%%%%%%%%
 %% Bib Data %%
