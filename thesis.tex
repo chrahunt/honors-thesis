@@ -6,6 +6,7 @@
 \usepackage{amsmath, amsthm, amsfonts, amssymb, latexsym}
 \usepackage{tensor} % For properly aligned mixed upper/lower indices
 \usepackage[mathscr]{euscript} % For script font
+\usepackage{graphicx}
 
 % The following is just a suggestion.  Theoremstyle declarations left to discretion of student/advisor.
 
@@ -49,8 +50,8 @@
 \newcommand{\bS}{\mathbf{S}}
 \newcommand{\bn}{\mathbf{n}}
 \newcommand{\bN}{\mathbf{N}}
-\newcommand{\bg}{\mathbf{\gamma}}
-\newcommand{\ba}{\mathbf{\alpha}}
+\newcommand{\bg}{\boldsymbol{\gamma}}
+\newcommand{\ba}{\boldsymbol{\alpha}}
 
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ptl}{\partial}
@@ -59,10 +60,12 @@
 \newcommand{\inv}{^{-1}}
 \newcommand{\ra}{\rangle}
 \newcommand{\la}{\langle}
-\newcommand{\bgam}{\boldsymbol{\gamma}}
 \newcommand{\Cfl}{\tensor{\Gamma}{_{ij}^k}}
 \newcommand{\del}{\partial}
 
+\newcommand{\buildset}[2]{\left\{#1\;\middle\vert\;#2\right\}}
+
+\graphicspath{ {/figures/} }
 \begin{document}
 
 %%%%%%%%%%%%%%%%
@@ -175,8 +178,11 @@ for Honors in Mathematics.
 %%%%%%%%%%%%%%%%%%%%%%
 
 {\input{section1}}
+\pagebreak
 {\input{section2}}
+\pagebreak
 {\input{section3}}
+\pagebreak
 
 %%%%%%%%%%%%%%
 %% Bib Data %%
