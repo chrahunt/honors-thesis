@@ -1,7 +1,7 @@
 %!TEX root=thesis.tex
 \section{Surface Theory}
 
-Investigating the properties of surfaces will form the basis on which our journey towards minimal surfaces rests. We will brave the perils that come in defining surfaces, and then use calculus on these surfaces to approximate the behavior at a point and extract information about the surface by extending on that approximation. Along the way we will make and derive various tools used for analyzing these surfaces, some of which we will bring along with us to Minimal Surfaces, others are interesting nonetheless and help to illustrate some of the connections between Differential Geometry and various other branches of mathematics. In this chapter, we will also look at parallels between these surfaces in $\RR^3$ and higher dimensional Riemannian manifolds, though only briefly.
+Investigating the properties of surfaces will form the basis on which our journey towards minimal surfaces rests. We will brave the perils that come in defining surfaces, and then use calculus on these surfaces to approximate the behavior at a point and extract information about the surface by extending on that approximation. Along the way we will make and derive various tools used for analyzing these surfaces, some of which we will bring along with us to Minimal Surfaces, others are interesting nonetheless and help to illustrate some of the connections between Differential Geometry and various other branches of mathematics. In this chapter, we will also look at parallels between these surfaces in $\RR^3$ and higher dimensional Riemannian manifolds, though only briefly. In general our reference for this section will be~\cite{MP77} which, while not as recent as some other texts, gives a very clean, if compact, view of the subject.
 
 \subsection{Defining Surfaces in $\RR^3$}
 
@@ -95,8 +95,9 @@ As we continue we will lean heavily on the structure-preserving properties of th
   which is certainly nonsingular. Then since $f$ was generic, coordinate transformations have nonsingular Jacobian.
 \end{proof}
 
+% TODO: Expand on the below
 \begin{lem}
-% TODO: Fix wording.
+  % TODO: Fix wording.
   Something about having the same image as $\bx$.
 \end{lem}
 
@@ -160,6 +161,7 @@ In this case finding additional patches so the surface is covered is not difficu
 with the same parameterization for each, these will cover the outside of the torus on the negative $x$ side, the inside of the torus on the negative $x$ side, and the inside of the torus on the positive $x$ side, respectively.
 % TODO: Check one of the intersections as a coordinate transformation
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 %                      %
 % CALCULUS ON SURFACES %
@@ -169,7 +171,9 @@ with the same parameterization for each, these will cover the outside of the tor
 \subsection{Calculus on Surfaces}
 
 % TODO: Explanation of title and the concepts that we will be introducing
-\begin{defn}
+This portion of our exploration we will define a structure, the $tangent plane$, on the surfaces introduced above. We will also show that tangent planes remain preserved under reparameterization on a surface constructed with the coordinate transformation requirement we have imposed. The tangent plane will give us a linear approximation of the behavior of the surface at a specific point on which we will build our tools in the next section, and the fact that it is preserved under coordinate transformation will obviate the need to check each tensor individually.
+
+\begin{defn} % def: Tangent vector.
   We consider two specific tangent vectors on a surface, the 
 \end{defn}
 
@@ -189,15 +193,15 @@ with the same parameterization for each, these will cover the outside of the tor
   There are a few things to notice here. First, as $\bx_1$ and $\bx_2$ form a basis for the tangent plane and the unit normal is perpendicular to both, all together these three vectors form a basis for $\RR^3$. This will be useful later on as we consider the second derivative of curves at a point and will calculate them to put it into the context of the tangent plane.
 \end{unno_rem}
 
+% TODO: Theorem of tangent plane preservation under coordinate transformation
+
 \subsection{Tensors and Operators on Surfaces}
 
-In this section we discover some of the tools that we will use to figure out the properties of surfaces in the next. Notice as we travel that the majority of these forms and tensors are really capturing very simple information, but we turn around and use them in combination to represent more complex or subtle properties of the surface. For this section assume that our operations are taking place on a simple surface and, while we will take some time to examine the fact that a property is indeed \emph{geometric} (i.e. independent of parameterization or the coordinate patch chosen for a point), where not shown or explicitly stated otherwise we will assume that the result is equivalent under a different parameterization. (For a more in-depth look at those specific considerations, see Millman77)
-% TODO: Citation above
+In this section we discover some of the tools that we will use to figure out the properties of surfaces in the next. Notice as we travel that the majority of these forms and tensors are really capturing very simple information, but we turn around and use them in combination to represent more complex or subtle properties of the surface. For this section assume that our operations are taking place on a simple surface and, as the tangent plane being \emph{geometric} (i.e. independent of parameterization) was shown in the last section, take these objects built upon it to inherit the same property.
 
-% TODO: Millman citation below
 % First fundamental form and metric tensor
 \begin{unno_rem}
-  One of the most fundamental operations in Euclidean space, allowing us notions of distance and angles between vectors, is the dot product (or more generally, the \emph{inner product}). We wish to have the same capability on our surface. Our definition is due to Millman77 and while we will see other representations later on, his is memorable. To motivate our construction, consider a surface $M \subset \RR^3$, $P$ a point on the surface, and two vectors $\bX$ and $\bY$ tangent to $M$ at $P$. Since $\bx_1$, $\bx_2$ form a basis for the tangent plane, in which $\bX$ and $\bY$ lie, we can write them as a linear combination and further, compute their inner product (denoted henceforth as $\la\phantom{x},\phantom{x}\ra$)
+  One of the most fundamental operations in Euclidean space, allowing us notions of distance and angles between vectors, is the dot product (or more generally, the \emph{inner product}). We wish to have the same capability on our surface. To motivate our construction, consider a surface $M \subset \RR^3$, $P$ a point on the surface, and two vectors $\bX$ and $\bY$ tangent to $M$ at $P$. Since $\bx_1$, $\bx_2$ form a basis for the tangent plane, in which $\bX$ and $\bY$ lie, we can write them as a linear combination and further, compute their inner product (denoted henceforth as $\la\phantom{x},\phantom{x}\ra$)
   \begin{align*}
     \bX &= \sum X^i\bx_i\\
     \bY &= \sum Y^j\bx_j\\
@@ -237,6 +241,7 @@ We make two notational additions: $\bx_{ij} = \frac{\partial^2\bx}{\partial u^j 
 
 $\kappa(s)\bN(s) = \bT^\prime(s) = \bg^{\prime\prime}(s) = \kappa_n(s)\bn + \kappa_g(s)\bS(s)$
 
+% TODO: Refactor
 Definition (103): The \emph{normal curvature} of a unit speed curve $\bg$ is the normal component of $\bg^{\prime\prime}$ (i.e. is $\kappa_n$). The \emph{geodesic curvature} of $\bg$ is the component of $\bg^{\prime\prime}$ in the direction of $\bS = \bn \times \bT$ (i.e. is $\kappa_g$).
 
 So then this $\bN$ is a linear combination of the other two.
@@ -248,6 +253,7 @@ Comment: What does the second derivative look like, and what does it give us.
 The christoffel symbols are the functions $\Cfl (1 \le i, j, k \le 2)$ defined on $\sU$ by $\Cfl = \sum\limits_{l = 1}^2 \left\la \bx_{ij}, \bx_{l}\right\ra g^{lk}$. This measures the tangential components of $\bx_{ij}$.
 
 Emphasis on thinking about these forms as assigning values to any two vectors. This is the second fundamental form because it is a symmetric bilinear form on $T_P M$
+
 % Christoffel symbols
 
 % Weingarten Map
