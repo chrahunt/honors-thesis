@@ -6,7 +6,7 @@ Investigating the properties of surfaces will form the basis on which our journe
 \subsection{Defining Surfaces in $\RR^3$}
 
 % Simple surface
-% TODO: Check to see if U needs to be connected.
+% TODO: Check to see if U needs to be connected - insert mention of being path-connected per Oprea p69
 % Refactored
 Defining surfaces is not particularly difficult, but our methods require a set of considerations that can be subtle. We will first define a \emph{simple surface}, or coordinate patch, which represents a small open section of a larger surface. After considering that, we define a \emph{coordinate transformation}, a type of function whose presence between these patches implies some geometry-preserving properties. That done, we finally build up surfaces using an open covering of these coordinate patches, with the requirement that a coordinate transformation exist on their intersection. Along the way we will have plenty of examples to illustrate specific techniques and concepts introduced.
 
@@ -39,15 +39,15 @@ This definition is exactly what we want. Conceptually, the regularity of $\bx$ e
   \]
 
   % NOTE: p15
-  Assuming the curve is regular and injective, we can show that a surface of revolution really is a simply surface by simply checking. (A curve, say $\ba : (a, b) \to \RR^3$ is considered \emph{regular} when $\frac{d\ba}{dt} \neq 0$ for any $t$ in $(a, b)$.)
+  Assuming the curve is regular and injective, we can show that a surface of revolution really is a simple surface by checking. (A curve, say $\ba : (a, b) \to \RR^3$ is considered \emph{regular} when $\frac{d\ba}{dt} \neq 0$ for any $t$ in $(a, b)$.)
 
   A quick calculation yields the following:
   \begin{align*}
     \bx_1 &= (\dot{r}\cos{\theta}, \dot{r}\sin{\theta}, \dot{z})\\
     \bx_2 &= (-r(t)\sin{\theta}, r(t)\cos{\theta}, 0)\\
-    \bx_1 \times \bx_2 &= (-\dot{z} r(t) \cos{\theta}, -\dot{z} r(t) \sin{\theta}, \dot{r}r(t))
+    \bx_1 \times \bx_2 &= (-\dot{z} r(t) \cos{\theta}, -\dot{z} r(t) \sin{\theta}, \dot{r}r(t)) \ ,
   \end{align*}
-  which is not $0$ since $r(t) > 0$, and then the original curve was regular so $\dot{r}, \dot{z} \neq 0$.
+  which is not $\zero$ since $r(t) > 0$, and then the original curve was regular so $\dot{r}, \dot{z} \neq 0$.
 \end{ex}
 % TODO: Example of an irregular surface
 
@@ -55,6 +55,7 @@ This definition is exactly what we want. Conceptually, the regularity of $\bx$ e
 \begin{defn} % def: Coordinate transformation definition (LOC: p79)
   Let $\sU, \sV$ be open subsets of $\RR^2$. A $C^k$ \emph{coordinate transformation} is an injective $C^k$ function $f: \sV \to \sU$ whose inverse $g:\sU \to \sV$ is also of class $C^k$. 
 \end{defn}
+
 
 As we continue we will lean heavily on the structure-preserving properties of these coordinate transformations, so we will take some time with them now to fully appreciate their impact. The following result we will need shortly. Let $f$ be a function from $\RR^2$ to itself and recall the \emph{Jacobian} of $f$ is the matrix-valued function of partial derivatives, denoted $J(f)$ given by
 \begingroup
@@ -159,6 +160,7 @@ In this case finding additional patches so the surface is covered is not difficu
   \sU_3 &= \buildset{(u, v) \in \RR^2}{\frac{5\pi}{6} < u < \frac{7\pi}{6}, -\frac{3\pi}{4} < v < \frac{3\pi}{4}}
 \end{align*}
 with the same parameterization for each, these will cover the outside of the torus on the negative $x$ side, the inside of the torus on the negative $x$ side, and the inside of the torus on the positive $x$ side, respectively.
+
 % TODO: Check one of the intersections as a coordinate transformation
 
 

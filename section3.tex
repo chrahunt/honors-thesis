@@ -3,7 +3,7 @@
 
   As we saw in the last section, there was more than one way to build up the concept of a Minimal Surface. This is no coincidence. The concept of minimal surfaces as an area-minimizing structure makes it well-suited to describe a number of physical phenomena, and further, its numerous definitions just serve to demonstrate that minimal surfaces lie at the intersection of a number of branches of mathematics. Our goal in this section is to look at what some would consider a more fundamental picture of minimal surfaces, showing their relationship to complex analysis through harmonic functions and culminating in the Weierstrass-Enneper Representation.
 
-  We will start by showing that for any minimal surface we may find \emph{isothermal parameters}, which guarantees for us specific behavior of the metric tensor. Following this we will break and visit some concepts, definitions, and theorems from complex analysis and take a brief look at harmonic functions. Then, since we can find isothermal parameters for any minimal surface, this will imply a relationship between minimal surfaces and their parameter functions which will give us a relatively simply method of \emph{generating} minimal surfaces. The Weierstrass-Enneper Representation then is just a way to satisfy the requirements for generation of a minimal surface, as we shall see.
+  We will start by showing that for any minimal surface we may find \emph{isothermal parameters}, which guarantees for us specific behavior of the metric tensor. Following this we will break and visit some concepts, definitions, and theorems from complex analysis and take a brief look at harmonic functions and their application to minimal surfaces. Then we tie it all together and come up with a simple method of \emph{generating} minimal surfaces. The Weierstrass-Enneper Representation for minimal surfaces then guarantees satisfaction of the requirements needed to generate a minimal surface, as we shall see.
 
   % TODO: Citations below
   Throughout, we will use the notation and language acquired from Oprea, as in Section~\ref{ss:opreaSrf} and take~\cite{Opr07} and~\cite{Opr00} as general reference for this section.
@@ -11,7 +11,8 @@
 \subsection{Background}
   Switching gears significantly from the previous sections, we will take a moment to fill in some background material.
 
-  % TODO: Consider putting this after the harmonic function section? Maybe.
+  % TODO: Consider putting this after the harmonic function section?
+  % TODO: Ensure rigorous enough.
   Recall that any complex value $z$ can be written in the form $z = u + iv$, where $u$ and $v$ are both real values. Likewise, given a function $f(z)$, we can rewrite this as $f(z) = \phi(z) + i\psi(z)$ and combined with the above we have $f(u, v) = \phi(u, v) + i \psi(u, v)$ where $\phi(u, v)$ and $\psi(u, v)$ are both real-valued functions. Throughout, we will use the notation
   \begin{align*}
     \Re z &= u\\
@@ -21,14 +22,33 @@
   \end{align*}
   with $\Re$ denothing the \emph{real} part of the variable or function and $\Im$ the so-called \emph{imaginary} portion.
 
-  % TODO: Holomorphic equation
+  % TODO: zbar
+  \begin{defn}
+    The \emph{complex conjugate} to $z$, denoted $\bar{z}$ has the form $\bar{z} = u - i v$ when $z = u + iv$.
+  \end{defn}
+
+  % TODO: u and v in terms of z and zbar
+  \begin{unno_rem}
+    Notice that with the above 
+  \end{unno_rem}
+
+
+  % TODO: Complex calculations
+
+  % TODO: Wirtinger derivatives
+
+  % TODO: Holomorphic functions in terms of derivative
+
+  % TODO: Holomorphic functions in terms of zbar derivative = 0
 
   % TODO: Harmonic functions
-  % TODO: Harmonic function definition
-  % TODO: Harmonic conjugates
-  
-  % TODO: briefly mention isothermal parameters
 
+  % TODO: Harmonic function definition
+
+  % TODO: Harmonic conjugates
+
+  % TODO: Triangle notation
+  
   % TODO: Corr 4.5.7
 
   % TODO: Isothermal parameters
@@ -36,6 +56,42 @@
     A surface 
   \end{defn}
 
-\subsection{Weierstrass Representation}
-  % TODO: Build first method
+\subsection{Weierstrass-Enneper Representation}
+  % TODO: Introduction and restriction to an isothermal minimal patch
+  As stated at the beginning of this section, we are seeking a more fundamental representation for minimal surfaces. Everything we've been doing up to this point has been in preparation for the Weierstrass-Enneper Representation and while it may seem as though the bulk of our journey is inapplicable in this realm, that is not the case. Complex variables make up the bulk of the language that the Representation is given in terms of, but a fact we will soon see is just how closely complex variables are to geometry and minimal surfaces, mediated by these parameterizations. That we can calculate curvature and other surface properties directly from the equations as we will see and construct them when previously we had used a number of tools and tensors speaks to the strong, and interesting, connections between these areas and more.
+
+  % TODO: Derivation of requirements for \phi
+  \begin{lem}
+    Suppose $M$ is a surface and take $x$ to be a patch on $M$ parameterized by $x = (x^1, x^2, x^3)$. Let $\phi = \frac{\del x}{\del z} = \left(x_z^1, x_z^2, x_z^3\right)$, and define further $\left(\phi^2\right) = \left(x_z^1\right)^2 + \left(x_z^2\right)^2 + \left(x_z^3\right)^2$. Then $\left(\phi^2\right) = 0$ if and only if $x$ is isothermal.
+  \end{lem}
+  \begin{proof}
+    Suppose that $x$ is isothermal. From the derivative operators introduced earlier, we calculate
+    \begin{align*}
+      \frac{\del x^i}{\del z} &= \frac{1}{2}\left(\frac{\del x^i}{\del u} - i\frac{\del x^i}{\del v}\right)\\
+      x^i_z &= \frac{1}{2}\left(x^i_u - ix^i_v\right)\\
+      \left(x^i_z\right)^2 &= \frac{1}{4}\left(\left(x_u^i\right)^2 - \left(x_v^i\right)^2 - 2ix_u^ix_v^i\right) \ .
+    \end{align*}
+    Inserting this into the equation we have for $\left(\phi^2\right)$ above, we have
+    \begin{align*}
+      \left(\phi^2\right) &= \frac{1}{4}\left(\sum_{j = 1}^3 {\tikzmark{tleft}{}\left(x_u^i\right)\tikzmark{tright}{}}^2 - \sum_{j = 1}^3 \left(x_v^i\right)^2 - 2i\sum_{j = 1}^3 x_u^i x_v^i\right)\\
+      &\\
+      &\,\,\,\tikzmark{nleft}{}x_u^1\cdot x_u^1 + x_u^2\cdot x_u^2 + x_u^3\cdot x_u^3\tikzmark{nright}{}\\
+      &\,\,\,\,\,\,\,\,\,\,\tikzmark{nnleft}{}x_u \cdot x_u\tikzmark{nnright}{}\\
+      &= \frac{1}{4}\left(\tikzmark{bleft}{}E\tikzmark{bright}{} - G - 2iF\right)\\
+      &= 0
+    \end{align*}
+    \tikz[overlay,remember picture] {
+      \draw[-,dashed] ([yshift=5pt,xshift=-5pt]nleft.north east) to[out=90,in=270] ([xshift=7pt,yshift=0pt]tleft.south west);
+      \draw[-,dashed] ([yshift=5pt,xshift=-3pt]nright.north east) to[out=90,in=270] ([xshift=0pt,yshift=1pt]tright.south east);
+      \draw[-,dashed] ([yshift=2pt,xshift=-4pt]nnleft.north east) to[out=90,in=270] ([xshift=4pt,yshift=0pt]nleft.south west);
+      \draw[-,dashed] ([yshift=2pt,xshift=-4pt]nnright.north east) to[out=45,in=235] ([xshift=-3pt,yshift=1pt]nright.south east);
+      \draw[-,dashed] ([yshift=4pt,xshift=-2pt]bleft.north east) to[out=90,in=270] ([xshift=4pt,yshift=2pt]nnleft.south west);
+      \draw[-,dashed] ([yshift=4pt,xshift=-3pt]bright.north east) to[out=90,in=270] ([xshift=-3pt,yshift=1pt]nnright.south east);
+    }
+    thus $x$ being isothermal implies $\left(\phi^2\right) = 0$. We can show the converse by the same calculations used above. Since $\left(\phi^2\right) = \frac{1}{4}(E - G - 2iF)$, we have $0 = E - G$ and $0 = 2iF$, that is $E = G$ and $F = 0$, respectively.
+  \end{proof}
+
+  % TODO: WE definition
+
+  % TODO: 
 \subsection{Examples}

@@ -1,14 +1,12 @@
-% This template written by Dr. Helmstutler.
-% If your questions about this document cannot be answered by a lot of research, see Dr. H in Trinkle 128.
-% Suggested reference:  "Math Into LaTeX" by George Gratzer.
-
 \documentclass[11pt]{article}
 \usepackage{amsmath, amsthm, amsfonts, amssymb, latexsym}
-\usepackage{tensor} % For properly aligned mixed upper/lower indices
-\usepackage[mathscr]{euscript} % For script font
+\usepackage{tensor} % For properly aligned mixed upper/lower indices.
+\usepackage[mathscr]{euscript} % For script font.
 \usepackage{graphicx}
+\usepackage{tikz} % For graphics.
+\usetikzlibrary{tikzmark}
 
-% The following is just a suggestion.  Theoremstyle declarations left to discretion of student/advisor.
+%  Theoremstyle declarations.
 
 \newtheorem{thm}{Theorem}
 \newtheorem{cor}[thm]{Corollary}
@@ -34,10 +32,10 @@
 % For paper height.  Do not disturb.
 \topmargin=-0.5in \textheight=9.0in
 
-% For no paragraph indents.  Style choice left to student/advisor.
+% For no paragraph indents. 
 % \setlength{\parindent}{0pt}
 
-% Various commands.
+% Various symbol commands.
 \newcommand{\scr}[1]{\mathscr{#1}}
 \newcommand{\sU}{\scr{U}}
 \newcommand{\sV}{\scr{V}}
@@ -67,9 +65,18 @@
 \renewcommand{\Re}{\text{Re}}
 \renewcommand{\Im}{\text{Im}}
 
+% Other commands.
 \newcommand{\buildset}[2]{\left\{#1\;\middle\vert\;#2\right\}}
 
+%%%%%%%%%%%%%%
+%% Graphics %%
+%%%%%%%%%%%%%%
+
+% Section 3 graphic.
+\renewcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
+
 \graphicspath{ {/figures/} }
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%
