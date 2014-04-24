@@ -1,10 +1,13 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath, amsthm, amsfonts, amssymb, latexsym}
+\usepackage[utf8]{inputenc} % For handling special characters.
 \usepackage{tensor} % For properly aligned mixed upper/lower indices.
 \usepackage[mathscr]{euscript} % For script font.
-\usepackage{graphicx}
+\usepackage{graphicx} % For pictures.
 \usepackage{tikz} % For graphics.
-\usetikzlibrary{tikzmark}
+\usepackage{multicol} % For equation formatting.
+
+\usetikzlibrary{tikzmark,arrows,patterns,shapes,backgrounds,positioning}
 
 %  Theoremstyle declarations.
 
@@ -39,31 +42,49 @@
 \newcommand{\scr}[1]{\mathscr{#1}}
 \newcommand{\sU}{\scr{U}}
 \newcommand{\sV}{\scr{V}}
-
+\newcommand{\sA}{\scr{A}}
 \newcommand{\bX}{\mathbf{X}}
 \newcommand{\bx}{\mathbf{x}}
 \newcommand{\bY}{\mathbf{Y}}
 \newcommand{\by}{\mathbf{y}}
 \newcommand{\bT}{\mathbf{T}}
 \newcommand{\bS}{\mathbf{S}}
+\newcommand{\bB}{\mathbf{B}}
 \newcommand{\bn}{\mathbf{n}}
 \newcommand{\bN}{\mathbf{N}}
 \newcommand{\bg}{\boldsymbol{\gamma}}
 \newcommand{\ba}{\boldsymbol{\alpha}}
+\newcommand{\bk}{\boldsymbol{\kappa}}
+\newcommand{\bt}{\boldsymbol{\tau}}
 \newcommand{\zero}{\mathbf{0}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
 % TODO: Weingarten Map L
 \newcommand{\wg}{L}
-\newcommand{\RR}{\mathbb{R}}
 \newcommand{\ptl}{\partial}
-\newcommand{\Ck}{C^k}
 \newcommand{\eps}{\varepsilon}
+\newcommand{\del}{\partial}
+
+\newcommand{\Ck}{C^k}
 \newcommand{\inv}{^{-1}}
 \newcommand{\ra}{\rangle}
 \newcommand{\la}{\langle}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+
+% Tensors.
 \newcommand{\Cfl}{\tensor{\Gamma}{_{ij}^k}}
-\newcommand{\del}{\partial}
-\renewcommand{\Re}{\text{Re}}
-\renewcommand{\Im}{\text{Im}}
+\newcommand{\cfl}[3]{\tensor{\Gamma}{_{#1#2}^#3}}
+\newcommand{\Rmn}{\tensor{R}{_{i}^l_{jk}}}
+\newcommand{\rmn}[4]{\tensor{\Gamma}{_{#1}^#2_{#3#4}}}
+\newcommand{\Llk}{\tensor{L}{^l_k}}
+\newcommand{\llk}[2]{\tensor{L}{^#1_#2}}
+\newcommand{\Krn}{\tensor{\delta}{_i^j}}
+\newcommand{\krn}[2]{\tensor{\delta}{_#1^#2}}
+
+\renewcommand{\Re}{\text{Re}\,}
+\renewcommand{\Im}{\text{Im}\,}
 
 % Other commands.
 \newcommand{\buildset}[2]{\left\{#1\;\middle\vert\;#2\right\}}
@@ -71,6 +92,26 @@
 %%%%%%%%%%%%%%
 %% Graphics %%
 %%%%%%%%%%%%%%
+
+% Section 1 graphic.
+% Node background pattern declarations.
+\pgfdeclarepatternformonly{right crosshatch}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{4pt}{4pt}}{\pgfqpoint{3pt}{3pt}}%
+{
+  \pgfsetstrokeopacity{0.3}
+  \pgfsetlinewidth{0.2pt}
+  \pgfpathmoveto{\pgfqpoint{3.1pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{0pt}{3.1pt}}
+  \pgfusepath{stroke}
+}
+
+\pgfdeclarepatternformonly{left crosshatch}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{4pt}{4pt}}{\pgfqpoint{3pt}{3pt}}%
+{
+  \pgfsetstrokeopacity{0.3}
+  \pgfsetlinewidth{0.2pt}
+  \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{3.1pt}{3.1pt}}
+  \pgfusepath{stroke}
+}
 
 % Section 3 graphic.
 \renewcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
@@ -95,7 +136,7 @@
 
 \vspace{1.5in}
 
-\sc Surface Theory, Miminal Surfaces, and Weierstrass Representation \normalfont
+\sc Surface Theory, Miminal Surfaces, and Weierstrass Representations \normalfont
 
 \Large
 
@@ -136,7 +177,7 @@ April 2014
 
 \vspace{0.5in}
 
-\noindent  This thesis by \textbf{John Q.\ Student} is accepted in its present form as satisfying the thesis requirement
+\noindent  This thesis by \textbf{Christopher A.\ Hunt} is accepted in its present form as satisfying the thesis requirement
 for Honors in Mathematics.
 
 \vspace{1.0in}
@@ -179,7 +220,8 @@ for Honors in Mathematics.
 %%%%%%%%%%%%%%
 
 \begin{abstract}
-\noindent  Here's what we're going to do.
+% TODO: Write abstract
+  \noindent  We construct surfaces, techniques for analyzing these surfaces, then we analyze surfaces using these techniques. Along the way we note some interesting properties including a few which may be surprising (unexpected intrinsic invariants!). Minimal surfaces get our consideration after, and while on the surface they appear as innocuous creatures satisfying a particular property (zero mean curvature), the discussion that follows will show otherwise. Minimal surfaces lie at the intersection of a number of different disciplines, and here we will touch but a few. The Weierstrass Representations, where we take our leave, will have us connecting Minimal Surfaces and Complex Analysis.
 \end{abstract}
 
 \vspace{0.25in}
@@ -211,6 +253,6 @@ for Honors in Mathematics.
 %\bibliography{my bib database filename without the .bib extension}
 
 % De-comment the next line to call up the entire database, whether cited or not.
-%\nocite*
+\nocite*
 
 \end{document}
