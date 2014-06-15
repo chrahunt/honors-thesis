@@ -30,8 +30,6 @@
     and will usually do so where having the number itself helps us see how the different derivatives and tensors work together. This is also useful in situations where the parameter to use depends on a variable external to the expression in which it is contained.
 
     Where we are dealing with a single, isolated function that has been defined using $u$ and $v$ as parameters, we may denote the partial derivative on one or the other by setting it as a subscript on the symbol used for the function.
-
-    For tensors, unfortunately, the notation indicates something else entirely. In most cases the 
   \end{unno_rem}
 
   \begin{defn} % def: Simple Surface
@@ -499,15 +497,15 @@
   \end{defn}
 
   \begin{defn}
-    Given a surface $M$ with patch $\bx$, the \emph{Gauss Map} is the mapping $\nu:\bx\to S^2$ given by the unit normal at each point on the surface. Gaussian curvature is connected to this in that $K$ being negative implies that orientation of $\nu$ is reversed at the point at which $K$ is being evaluated.
+    Given a surface $M$ with patch $\bx$, the \emph{Gauss Map} is the mapping $\nu:\bx\to S^2$ given by the unit normal at each point on the surface.
   \end{defn}
 
-  % TODO!: Theorem 9.2 Gaussian curvature K of a surface is intrinsic. Include the proof.
-  % TODO: Refactor this
-  \begin{thm}
-    The Gaussian curvature $K$ of a surface is intrinsic. This is known as Gauss's \emph{Theorema Egregium}.
+  Gaussian curvature is connected to the Gauss Map in that $K$ being negative implies that orientation of $\nu$ is reversed at the point at which $K$ is being evaluated.
+
+  \begin{thm}[Gauss's \emph{Theorema Egregium}, Theorem 9.2 of~\cite{MP77}]
+    The Gaussian curvature $K$ of a surface is intrinsic.
   \end{thm}
-  \begin{proof} (\cite{MP77})
+  \begin{proof}
     By Gauss's equation in Definition~\ref{def:riemannian_tensor}, we have $\Rmn = L_{ik}\llk{l}{j} - L_{ij}\Llk$. Hence
     \[
       \sum\Rmn g_{lm} = L_{ik}L_{mj} - L_{ij}L_{mk}.
@@ -516,7 +514,7 @@
     \begin{align*}
       \sum\rmn{1}{l}{2}{1}g_{l2} &= L_{11}L_{22} - L_{12}L_{21}\\
       &= \det(L_{ij})\\
-      &= \del((\Llk) (g_{ik}))\\
+      &= \det((\Llk) (g_{ik}))\\
       &= \det(\Llk)\det(g_{ik})\\
       &= K g.
     \end{align*}
@@ -533,7 +531,7 @@
 
   % TODO: Coordinate Chart information
   \begin{defn}
-    Let $M$ be a metric space and $p \in M$. A \emph{coordinate chart} about $p$ of dimension $n$ consists of a neighborhood $\sU$ of $p$ and a function $\phi: \sU \to \RR^n$ that is injective, continuous, and has the property that $\sU^\prime = \phi(\sU)$ is open in $\RR^n$ (i.e. it is homeomorphic to $\RR^n$ on some neighborhood of a point $p$).
+    Let $M$ be a metric space and $p \in M$. A \emph{coordinate chart} about $p$ of dimension $n$ consists of a neighborhood $\sU$ of $p$ and a function $\phi: \sU \to \RR^n$ that is injective, continuous, and has the property that $\sU^\prime = \phi(\sU)$ is open in $\RR^n$ (i.e. it is homeomorphic to $\RR^n$ on some neighborhood of a point $p$). A coordinate chart is \emph{proper} if the inverse function is also continuous.
   \end{defn}
 
   % TODO: Diffeomorphism
@@ -554,8 +552,8 @@
     \end{enumerate}
   \end{defn}
 
-  While it's possible to construct this relationship in either direction, this convention emphasizes that, unlike when dealing with surfaces, the object of our focus is the manifold itself.
+  Notice that this contrasts the definition of surfaces in the previous section. We constructed surfaces using coordinate patches, like $\bx:\RR^2\to\RR^3$, but here we are constructing manifolds from these coordinate charts in a way almost completely the opposite. While it is possible to define this relationship in either direction, this definiting emphasizes that, unlike when dealing with surfaces, the object of our focus is the manifold itself.
 
-  We can extend all of the intrinsic properties that we had in surfaces to manifolds and this allows us to build up a more general picture of what is happening. In general, our discussion in the past sections has been concerned mostly with the intrinsic properties of surfaces exactly for the reason that these are the ones that can be extended out to properties on manifolds. As we move forward we will leave this motivation behind and focus instead on those techniques and parameterizations necessary to connect our surfaces with Complex Analysis in the final chapter.
+  We can extend all of the intrinsic properties that we had in surfaces to manifolds and this allows us to build up a more general picture of what is happening. In general, our discussion in the past sections has been concerned mostly with the intrinsic properties of surfaces exactly for the reason that these are the ones that can be extended out to properties on manifolds. As we move forward we will leave this motivation behind and focus instead on those techniques and parameterizations necessary to connect our surfaces with complex analysis in the final chapter.
 
   % PTODO: Figure that looks like the one on page 204

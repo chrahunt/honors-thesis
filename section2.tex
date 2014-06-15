@@ -10,12 +10,9 @@ Minimal surfaces are found at the intersection of a number of different areas in
 \subsection{Properties of Minimal Surfaces}
   There are several properties of minimal surfaces that we'd like to highlight here.
 
-  \begin{thm}
+  \begin{thm}[Theorem 3.5.7 of~\cite{Opr07}]
     If a surface of revolution $M$ is minimal, then $M$ is contained in either a plane or catenoid.
   \end{thm}
-  \begin{proof}
-    See~\cite{Opr07} Theorem 3.5.7.
-  \end{proof}
 
   We make the next definition to highlight an interesting fact about minimal surfaces.
   \begin{defn}
@@ -26,20 +23,17 @@ Minimal surfaces are found at the intersection of a number of different areas in
     In terms of the construction of the surface we can think of this as if we travel along $\alpha$ and at each point the surface is the sheet formed between $\alpha$ and $\beta$ mediated by the second parameter $t$. 
   \end{defn}
 
-  \begin{thm}
+  \begin{thm}[Theorem 4.2.6 of~\cite{Opr07}]
     Any ruled minimal surface in $\RR^3$ is part of a plane or a helicoid.
   \end{thm}
-  \begin{proof}
-    See~\cite{Opr07} Theorem 4.2.6.
-  \end{proof}
 
   This next one is less of a property and more of an example, in part to motivate the discussion of the next chapter.
 
   \begin{ex}
     \label{ex:ennepers_surface}
-    Let $M$ be the surface parameterized by the patch $\bx(u, v) = \left(u - \frac{u^3}{3} + uv^2, v - \frac{v^3}{3} + vu^2, u^2 - v^2\right)$. This is known as \emph{Enneper's Surface}. We can see one view of it in Figure~\ref{fig:ennepers_surface}.
+    Let $M$ be the surface parameterized by the patch $\bx(u, v) = \left(u - \frac{u^3}{3} + uv^2, v - \frac{v^3}{3} + vu^2, u^2 - v^2\right)$. This is known as \emph{Enneper's Surface}. The source of our parameterization seems opaque, but we will see in the next chapter just how simple an origin this surface has. We can see one view of it in Figure~\ref{fig:ennepers_surface}.
 
-    \begin{figure}[t] % fig: Torus
+    \begin{figure}[t] % fig: Enneper's Surface
       \centering
       \includegraphics[width=0.5\textwidth]{figures/ennepers_surface.pdf}
       \caption{Enneper's Surface.}
@@ -52,14 +46,14 @@ Minimal surfaces are found at the intersection of a number of different areas in
   % TODO: Citation
   % l, m, n from Oprea07 (p88)
   % E, F, G, l, m, n, shape operator, H, K, etc.
-  In the language of the previous section our examination of minimal surfaces would be something of a slog. The properties and intuition that we will build up will cover a wide range of approaches from the strictly geometric (in which case, for ease of understanding we will use the more intuitive notation of the former) to analytic. In the case of the latter we will use notation due, in part to Oprea which we will define here for convenience. Letting $U = \bn$ denote the unit normal and $u, v$ refer to the first and second parameters of a simple surface, we have
+  In the language of the previous section our examination of minimal surfaces would be something of a slog. The properties and intuition that we will build up will cover a wide range of approaches from the strictly geometric (in which case, for ease of understanding we will use the more intuitive notation of the former) to analytic. In the case of the latter we will use notation due, in part to Oprea which we will define here for convenience. Letting $u$ and $v$ refer to the first and second parameters of a simple surface, we have
   \begin{align*}
     E &= g_{11}\\
     F &= g_{12} = g_{21}\\
     G &= g_{22}\\
-    l &= \bx_{uu}\cdot U = L_{11}\\
-    m &= \bx_{uv}\cdot U = L_{12} = L_{21}\\
-    n &= \bx_{vv}\cdot U = L_{22}.
+    l &= \bx_{uu}\cdot \bn = L_{11}\\
+    m &= \bx_{uv}\cdot \bn = L_{12} = L_{21}\\
+    n &= \bx_{vv}\cdot \bn = L_{22}.
   \end{align*}
 
   Then in terms of these new objects we have the Gaussian and Mean curvature given by
@@ -93,7 +87,7 @@ Minimal surfaces are found at the intersection of a number of different areas in
     \end{align*}
     Then, calculating the unit normal and the rest of the items needed for $H$ above (letting $w = \sqrt{1 + f_u^2 + f_v^2}$, we find
     \begin{align*}
-      U &= \frac{(-f_u, -f_v, 1)}{w}\\
+      \bn &= \frac{(-f_u, -f_v, 1)}{w}\\
       E &= 1 + f_u^2\\
       F &= f_uf_v\\
       G &= 1 + f_v^2\\
